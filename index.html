@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeeDChat</title>
+    <link rel="stylesheet" href="./Public/css/global.css">
 </head>
+
 <body>
-    
+    <!-- user information  -->
+    <aside id="messages-container">
+        <!-- chats section that consist of the search box and users  -->
+        <div id="user-Info-Header">
+
+        </div>
+        <!-- search div  -->
+        <div id="messages-chat">
+            <!-- the inputs  -->
+
+            <div id="messages-search">
+                <img src="/Public/Assets/img-icons/search.png" alt="">
+                <input type="text" placeholder="Search or start a new chat" id="search">
+            </div>
+            <!-- /* other users display */ -->
+            <div id="messages"></div>
+        </div>
+    </aside>
+
+    <!-- end of user information -->
+
+    <!-- main body section that consist of three parts chat header,chats and chat inputs  -->
+
+    <section id="Current-Chat-Container">
+        <!-- /* chat header */ -->
+        <div id="Chat-Header-Container">
+
+        </div>
+        <!-- chats -->
+        <div id="chats">
+
+        </div>
+        <!-- chat input section -->
+        <div id="chat-input-container">
+            <!-- left items  -->
+            <div id="left-items">
+                <img src="/Public/Assets/img-icons/🙂@2x.png" alt="">
+                <img src="/Public/Assets/img-icons/Plus.png" alt="">
+
+            </div>
+
+            <!-- form  -->
+            <form action="" id="form">
+                <div id="chat-input-box">
+                    <input type="text" placeholder="Say Something......" id="text" autocomplete="off">
+                </div>
+                <button>send</button>
+            </form>
+            <!-- recording -->
+            <div id="record-icon">
+                <img src="/Public/Assets/img-icons/Voice.png" alt="">
+            </div>
+        </div>
+
+    </section>
 </body>
+
 </html>
