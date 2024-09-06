@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeeDChat</title>
-    <link rel="stylesheet" href="./Public/css/global.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -19,10 +19,10 @@
         <div id="messages-chat">
             <!-- the inputs  -->
 
-            <div id="messages-search">
-                <img src="/Public/Assets/img-icons/search.png" alt="">
+            <form id="messages-search">
+                <img src="Assets/img-icons/search.png" alt="">
                 <input type="text" placeholder="Search or start a new chat" id="search">
-            </div>
+            </form>
             <!-- /* other users display */ -->
             <div id="messages"></div>
         </div>
@@ -39,31 +39,34 @@
         </div>
         <!-- chats -->
         <div id="chats">
-
+            <ul id="message"></ul>
         </div>
         <!-- chat input section -->
         <div id="chat-input-container">
             <!-- left items  -->
             <div id="left-items">
-                <img src="/Public/Assets/img-icons/🙂@2x.png" alt="">
-                <img src="/Public/Assets/img-icons/Plus.png" alt="">
+                <img src="Assets/img-icons/🙂@2x.png" alt="">
+                <img src="Assets/img-icons/Plus.png" alt="">
+
 
             </div>
 
             <!-- form  -->
             <form action="" id="form">
                 <div id="chat-input-box">
-                    <input type="text" placeholder="Say Something......" id="text" autocomplete="off">
+                    <input type="text" placeholder="Say Something......" id="input" autocomplete="off">
                 </div>
                 <button>send</button>
             </form>
             <!-- recording -->
             <div id="record-icon">
-                <img src="/Public/Assets/img-icons/Voice.png" alt="">
+                <img src="/Assets/img-icons/Voice.png" alt="">
             </div>
         </div>
 
     </section>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
 </body>
 
 </html>
