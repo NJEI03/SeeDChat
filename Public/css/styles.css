@@ -102,6 +102,8 @@ img {
     /* border: 1px solid; */
     overflow-y: scroll;
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #message {
@@ -129,7 +131,7 @@ img {
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2),
         -3px -3px 4px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -138,11 +140,11 @@ img {
 
 /* left items */
 #left-items {
-    width: 72px;
+    /* width: 72px; */
     height: 24px;
-    /* border: 2px solid; */
+    border: 2px solid;
     display: flex;
-    padding: 😉;
+
     align-items: center;
     justify-content: space-between;
 }
@@ -155,11 +157,12 @@ img {
 
 /* form has the button and inputs */
 #form {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    /* border: 2px solid; */
 }
 
 /* button */
@@ -203,4 +206,205 @@ button {
     align-items: center;
     margin: 0 0 0 -4rem;
 
+}
+
+#messages2 {
+    padding: 20px 2rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    /* background-color: #1c2c4c; */
+}
+
+/* #messages2 p:nth-child(1) {
+    margin-bottom: 10px;
+} */
+
+/* From Uiverse.io by vinodjangid07 */
+.InputContainer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    padding-left: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.input {
+    width: 170px;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    caret-color: rgb(255, 81, 0);
+}
+
+.labelforsearch {
+    cursor: text;
+    padding: 0px 12px;
+}
+
+.searchIcon {
+    width: 13px;
+}
+
+.border {
+    height: 40%;
+    width: 1.3px;
+    background-color: rgb(223, 223, 223);
+}
+
+.micIcon {
+    width: 12px;
+}
+
+.micButton {
+    padding: 0px 15px 0px 12px;
+    border: none;
+    background-color: transparent;
+    height: 40px;
+    cursor: pointer;
+    transition-duration: .3s;
+}
+
+.searchIcon path {
+    fill: rgb(114, 114, 114);
+}
+
+.micIcon path {
+    fill: rgb(255, 81, 0);
+}
+
+.micButton:hover {
+    background-color: rgb(255, 230, 230);
+    transition-duration: .3s;
+}
+
+
+/* From Uiverse.io by vinodjangid07 */
+.messageBox {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* background-color: #2d2d2d; */
+    padding: 0 15px;
+    border-radius: 10px;
+    border: 1px solid rgb(63, 63, 63);
+}
+
+.messageBox:focus-within {
+    border: 1px solid rgb(110, 110, 110);
+}
+
+.fileUploadWrapper {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#file {
+    display: none;
+}
+
+.fileUploadWrapper label {
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.fileUploadWrapper label svg {
+    height: 18px;
+}
+
+.fileUploadWrapper label svg path {
+    transition: all 0.3s;
+}
+
+.fileUploadWrapper label svg circle {
+    transition: all 0.3s;
+}
+
+.fileUploadWrapper label:hover svg path {
+    stroke: #fff;
+}
+
+.fileUploadWrapper label:hover svg circle {
+    stroke: #fff;
+    fill: #3c3c3c;
+}
+
+.fileUploadWrapper label:hover .tooltip {
+    display: block;
+    opacity: 1;
+}
+
+.tooltip {
+    position: absolute;
+    top: -40px;
+    display: none;
+    opacity: 0;
+    color: white;
+    font-size: 10px;
+    text-wrap: nowrap;
+    background-color: #000;
+    padding: 6px 10px;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.596);
+    transition: all 0.3s;
+}
+
+#messageInput {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    color: black;
+}
+
+#messageInput:focus~#sendButton svg path,
+#messageInput:valid~#sendButton svg path {
+    fill: #3c3c3c;
+    stroke: white;
+}
+
+#sendButton {
+    width: fit-content;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#sendButton svg {
+    height: 18px;
+    transition: all 0.3s;
+}
+
+#sendButton svg path {
+    transition: all 0.3s;
+}
+
+#sendButton:hover svg path {
+    fill: #3c3c3c;
+    stroke: white;
 }
