@@ -107,8 +107,23 @@ img {
 .Contact-info .profile-name{
     margin-bottom: -8px;
 }
+.active-status{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.status-color{
+    background-color: green;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+  
+}
 .status{
     opacity: 80%;
+}
+.avatar{
+    margin-left: 10px;
 }
 /* Icons section */
 .navbar-icons .icon {
