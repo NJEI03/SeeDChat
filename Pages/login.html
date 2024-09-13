@@ -12,8 +12,47 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100vw;
             margin: 0;
             text-decoration: none;
+        }
+        .pulse-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(111, 218, 152); /* WhatsApp green */
+            border-radius: 50%;
+            animation: pulse 6s infinite;
+            left: 0;
+            right: 0;
+        }
+        .pulse-circle2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color:#e69500; 
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+            left:70%;
+            right: 70%;
+            top:0;
+        }
+        .pulse-circle:nth-child(2) {
+            animation-delay: 1s;
+        }
+        .pulse-circles:nth-child(2) {
+            animation-delay: 2s;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+                
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
         .login-container {
             background-color: white;
@@ -35,11 +74,12 @@
         }
         .login-container input[type="text"],
         .login-container input[type="password"] {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ddd;
             border-radius: 5px;
+            outline: none;
         }
         .login-container button {
             background-color: #FFA500; /* Light orange */
@@ -66,12 +106,25 @@
         }
         @media (max-width: 600px) {
             .login-container {
-                padding: 15px;
+                /* padding: 15px; */
+                height: 100%;
+                width: 100%;
+            }
+            body{
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <div class="pulse-circles"></div>
+        <div class="pulse-circle2"></div>
+        <div class="pulse-circle2"></div>
+    </div>
+    <div class="pulse-background">
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+    </div>
     <div class="login-container">
         <h1>SeedChat</h1>
         <h2>Welcome back! Please login to continue.</h2>
