@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeedChat Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .pulse-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgb(111, 218, 152); /* WhatsApp green */
+            border-radius: 50%;
+            animation: pulse 6s infinite;
+            left: 0;
+            right: 0;
+        }
+        .pulse-circle2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color:#e69500; 
+            border-radius: 50%;
+            animation: pulse 4s infinite;
+            left:70%;
+            right: 70%;
+            top:0;
+        }
+        .pulse-circle:nth-child(2) {
+            animation-delay: 1s;
+        }
+        .pulse-circles:nth-child(2) {
+            animation-delay: 2s;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+                
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        .signup-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+        }
+        .signup-container h1 {
+            color: #25D366; /* WhatsApp green */
+            margin-bottom: 10px;
+        }
+        .signup-container h2 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .signup-container input[type="text"],
+        .signup-container input[type="password"],
+        .signup-container input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        .signup-container button {
+            background-color: #FFA500; /* Light orange */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .signup-container button:hover {
+            background-color: #e69500;
+        }
+        .social-signup {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .social-signup button {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 48%;
+            margin-bottom: 15px;
+        }
+        .social-signup button:hover {
+            background-color: #f0f0f0;
+        }
+        .signup-link {
+            margin-top: 15px;
+            color: #25D366;
+            text-decoration: none;
+        }
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .signup-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pulse-circles">
+        <div class="pulse-circle2"></div>
+        <div class="pulse-circle2"></div>
+    </div>
+    <div class="pulse-background">
+        <div class="pulse-circle"></div>
+        <div class="pulse-circle"></div>
+    </div>
+    <div class="signup-container">
+        <h1>SeedChat</h1>
+        <h2>Get the best chat experience</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="social-signup">
+            <button>Sign up with Google</button>
+            <button>Sign up with Facebook</button>
+        </div>
+        <a href="login.html" class="signup-link">Already have an account? Login</a>
+    </div>
+</body>
+</html>
+
