@@ -28,9 +28,20 @@ body {
 
 /* user information */
 #user-Info-Header {
-    width: 236px;
-    height: 50px;
-    border: 1px solid #000;
+    width: 300px;
+    /* height: 50px; */
+    /* border: 1px solid #000; */
+    display: flex;
+    align-items: center;
+}
+#user-Info-Header .avatar{
+    border-radius: 50%;
+}
+.status-shape{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border:2px dashed black;
 }
 
 /* chats section that consist of the search box and users */
