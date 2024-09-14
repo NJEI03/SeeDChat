@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeeDChat</title>
-    <link rel="stylesheet" href="./Public/css/global.css">
+
+    <link rel="stylesheet" href="css/global.css">
+
+    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
@@ -15,16 +19,20 @@
     <aside id="messages-container">
         <!-- chats section that consist of the search box and users  -->
         <div id="user-Info-Header">
+
           <img src="./Public/Assets/img-icons/avatar.jpg" alt="" class="avatar">
           <div class="status-shape"></div>
+
         </div>
         <!-- search div  -->
         <div id="messages-chat">
             <!-- the inputs  -->
 
             <div id="messages-search">
-                <img src="/Public/Assets/img-icons/magnifying-glass-solid.svg" alt="">
-                <input type="text" placeholder="Search or start a new chat" id="search">
+
+                <img src="Assets/img-icons/magnifying-glass-solid.svg" alt="">
+                <input type="text" placeholder="Search or start a new chat" id="search" autocomplete="off">
+        
             </div>
             <!-- /* other users display */ -->
             <div id="messages"></div>
@@ -37,10 +45,12 @@
 
     <section id="Current-Chat-Container">
         <!-- /* chat header */ -->
-         
+
+
         <div id="Chat-Header-Container">
             <div class="Contact-info">
-                <img class="avatar" src="./Public/Assets/img-icons/avatar.jpg" alt="avatar">
+                <img class="avatar" src="Assets/img-icons/avatar.jpg" alt="avatar">
+
                 <div class="">
                     <h4 class="profile-name">SeeDChat Admin</h4>
                     <div class="active-status">
@@ -54,37 +64,53 @@
                 <a href="#" class="icon video-call"><i class="fa fa-video"></i></a>
                 <a href="#" class="icon search"><i class="fa fa-search"></i></a>
                 <a href="#" class="icon more-options"><i class="fa fa-ellipsis-v "></i></a>
-                
+
             </ul>
 
         </div>
         <!-- chats -->
         <div id="chats">
 
+            <p id="typing-status" style="color: white;"> </p>
+
+
+
         </div>
         <!-- chat input section -->
         <div id="chat-input-container">
             <!-- left items  -->
             <div id="left-items">
-                <img src="/Public/Assets/img-icons/🙂@2x.png" alt="emoji">
-                <img src="/Public/Assets/img-icons/Plus.png" alt="plus">
+
+                <img src="Assets/img-icons/🙂@2x.png" alt="emoji">
+                <img src="Assets/img-icons/Plus.png" alt="plus">
+            
 
             </div>
 
             <!-- form  -->
             <form action="" id="form">
                 <div id="chat-input-box">
-                    <input type="text" placeholder="Say Something......" id="text" autocomplete="off">
+
+                    <input type="text" placeholder="Say Something......" id="text" autocomplete="off"
+                        oninput="handleTyping()" onblur="stopTyping()">
+
                 </div>
                 <button>send</button>
             </form>
             <!-- recording -->
             <div id="record-icon">
-                <img src="/Public/Assets/img-icons/Voice.png" alt="">
+              
+                <img src="Assets/img-icons/Voice.png" alt="">
+
+        
             </div>
         </div>
 
     </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+
 </body>
 
 </html>
