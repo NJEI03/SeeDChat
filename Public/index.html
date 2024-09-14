@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>SeedChat App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- user information  -->
+    <aside id="messages-container">
+        <!-- chats section that consist of the search box and users  -->
+        <div id="user-Info-Header">
+
+        </div>
+        <!-- search div  -->
+        <div id="messages-chat">
+            <!-- the inputs  -->
+
+            <div id="messages-search">
+                <img src="Assets/img-icons/search.png" alt="">
+                <input type="text" placeholder="Search or start a new chat" id="search">
+            </div>
+            <!-- /* other users display */ -->
+            <div id="messages1">
+                <div class="image"></div>
+            </div>
+        </div>
+    </aside>
+    <div class="container">
+        <div class="header">
+
+            <ul class="lists">
+                <li>Home</li>
+                <li>Update</li>
+                <li>Video call</li>
+                <li>Audio call</li>
+
+            </ul>
+
+
+
+        </div>
+        <p id="typing-status" style="color: white;"> </p>
+        <div id="messages">
+
+            <!-- <p class="chat-message">hello ther how <span class="timeStamp" style="text-align: right;">11:31:59 PM</span></p>
+        <p class="chat-message right">hello ther how</p>
+        <p class="chat-message">hello ther how</p> -->
+
+        </div>
+        <form id="form" action="">
+            <input id="input" placeholder="Type message..." autocomplete="off" oninput="handleTyping()"
+                onblur="stopTyping()" />
+            <button>Send</button>
+            <button id="toggle-btn">Disconnect</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/chat.js"></script>
+
+</body>
+
+</html>
