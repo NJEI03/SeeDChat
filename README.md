@@ -1,5 +1,6 @@
 # Seed Chat
 
+![Seed Chat Logo](./Public/Assets/img-icons/SEEDCHAT.jpeg)
 **Seed Chat** is a simple, real-time web-based chat application built for fast and efficient communication. This project is designed to help users communicate in chat rooms instantly.
 
 ---
@@ -18,7 +19,7 @@
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js, Express.js
 - **Real-time Communication**: Socket.IO
-- **Database**: MongoDB (optional for user data)
+
 
 ---
 
@@ -27,10 +28,13 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
+-[Socket.io](socket.io)
 - [MongoDB](https://www.mongodb.com/) (optional, if using user authentication)
 
+## Team
+This project is done under the supervision of SEED Inc.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/seed-chat.git
-cd seed-chat
+git clone https://github.com/NJEI03/SeeDChat
+
