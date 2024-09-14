@@ -2,14 +2,14 @@ let name = prompt("Enter your name : ", "Guest");
 const socket = io();
 
 const form = document.getElementById('form');
-const input = document.getElementById('input');
+const input = document.getElementById('text');
 const message = document.getElementById('messages')
 const currentTime = new Date().toLocaleTimeString();
 const Friend = document.getElementById('messages1');
 
 document.getElementById('user-Info-Header').innerHTML += `<p class="connected">${name}</p>`;
 
-document.getElementById("messages").innerHTML = `<p class="joined">You joined at ${currentTime}</p>`;
+document.getElementById("chats").innerHTML = `<p class="joined">You joined at ${currentTime}</p>`;
 socket.emit('new-user', name)
 
 form.addEventListener('submit', (e) => {
@@ -29,7 +29,7 @@ socket.on('chat message', (msg) => {
 
 
     const item = (msg.name == name) ? `<p class="chat-message right">You : ${msg.msg} <span class="timeStamp">${currentTime}</span>` : `<p class="chat-message">${msg.name} : ${msg.msg} <span class="timeStamp">${currentTime}</span>`
-    document.getElementById("messages").innerHTML += item;
+    document.getElementById("chats").innerHTML += item;
     console.log(item)
 });
 
@@ -51,7 +51,7 @@ toggleButton.addEventListener('click', (e) => {
 //user connected
 socket.on('user-connected', name => {
     console.log("connected", name)
-    document.getElementById('messages1').innerHTML += `<p class="user-connected">${name} connected</p>`;
+    document.getElementById('messages').innerHTML += `<p class="user-connected">${name} connected</p>`;
 })
 
 

@@ -78,6 +78,7 @@ img {
     width: 336px;
     height: 550px;
     border: 1px solid;
+    color: #000;
 }
 
 
@@ -98,40 +99,48 @@ img {
     border-radius: 0 0 10px 10px;
 
 }
-.Contact-info{
+
+.Contact-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:200px;
+    width: 200px;
 }
-.Contact-info .profile-name{
+
+.Contact-info .profile-name {
     margin-bottom: -8px;
 }
-.active-status{
+
+.active-status {
     display: flex;
     align-items: center;
     gap: 4px;
 }
-.status-color{
+
+.status-color {
     background-color: green;
     border-radius: 50%;
     width: 10px;
     height: 10px;
-  
+
 }
-.status{
+
+.status {
     opacity: 80%;
 }
-.avatar{
+
+.avatar {
     margin-left: 10px;
 }
+
 /* Icons section */
 .navbar-icons .icon {
-    color:orange;
+    color: orange;
     text-decoration: none;
     font-size: 20px;
     margin-right: 12px;
 }
+
 .navbar-icons {
     display: flex;
     gap: 20px;
@@ -140,6 +149,7 @@ img {
     width: 30%;
     justify-content: center;
 }
+
 /* .search{
     color: orange;
     height: 20px;
@@ -147,10 +157,47 @@ img {
 } */
 /* chats section */
 #chats {
-    width: 100%;
+    width: 80%;
     height: 565px;
-
+    padding: 0 3rem;
+    border: 1px solid;
+    margin: 0 auto;
 }
+
+#typing-status {
+    visibility: hidden;
+    text-align: center;
+    color: black;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: calc(100% - 200px);
+    width: max-content;
+    width: -webkit-max-content;
+    background-color: #70eccd;
+    border-radius: 0px 20px 20px 20px;
+    box-shadow: -2px 2px 1px 1px #4c768d;
+    color: black;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.chat-message.right {
+    background-color: #6eed7c;
+    border-radius: 20px 0px 20px 20px;
+    box-shadow: -2px 2px 1px 1px #88dded;
+    margin-left: auto;
+}
+
+
+.joined {
+    text-align: center;
+    color: rgb(27, 25, 25);
+}
+
 
 /* chats inputs consist of three sections the left items,form and record icon */
 #chat-input-container {

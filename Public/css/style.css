@@ -170,7 +170,7 @@ img {
     max-width: calc(100% - 200px);
     width: max-content;
     width: -webkit-max-content;
-    background-color: #7cc5d9;
+    background-color: #70eccd;
     border-radius: 0px 20px 20px 20px;
     box-shadow: -2px 2px 1px 1px #4c768d;
     color: black;
@@ -179,7 +179,7 @@ img {
 }
 
 .chat-message.right {
-    background-color: #ffffff;
+    background-color: #6eed7c;
     border-radius: 20px 0px 20px 20px;
     box-shadow: -2px 2px 1px 1px #88dded;
     margin-left: auto;

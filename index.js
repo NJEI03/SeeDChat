@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 })
 app.get('/SeeDChat', (req, res) => {
   // res.render('./index.html')
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const users = {}

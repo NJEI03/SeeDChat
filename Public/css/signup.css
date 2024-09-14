@@ -80,11 +80,12 @@ body {
 .signup-container input[type="text"],
 .signup-container input[type="password"],
 .signup-container input[type="email"] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
+    outline: none;
 }
 
 .signup-container button {
