@@ -1,6 +1,8 @@
 # Seed Chat
 
-![Seed Chat Logo](./Public/Assets/img-icons/SEEDCHAT.jpeg)
+<!-- ![Seed Chat Logo](./Public/Assets/img-icons/SEEDCHAT.jpeg) -->
+<img src="./Public/Assets/img-icons/SEEDCHAT.jpeg" alt="Seed Chat Logo" width="400">
+
 **Seed Chat** is a simple, real-time web-based chat application built for fast and efficient communication. This project is designed to help users communicate in chat rooms instantly.
 
 ---
