@@ -44,3 +44,7 @@ git clone https://github.com/NJEI03/SeeDChat
 ```bash
 npm install
 ```
+### 3. Run the development server
+```bash
+npm start
+```
