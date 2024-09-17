@@ -38,5 +38,9 @@ This project is done under the supervision of SEED Inc.
 ### 1. Clone the Repository
 
 ```bash
+1. Clone the repository
 git clone https://github.com/NJEI03/SeeDChat
 
+```bash
+2. Install all dependencies
+npm install
