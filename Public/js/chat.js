@@ -1,4 +1,4 @@
-let name = prompt("Enter your name : ", "Guest");
+// let name = prompt("Enter your name : ", "Guest");
 const socket = io();
 
 const form = document.getElementById('form');

@@ -12,9 +12,9 @@
     <div class="login-container">
         <h1>SeedChat</h1>
         <h2>Welcome back! Please login to continue.</h2>
-        <form action="/" method="post">
-            <input type="text" placeholder="Username" required autocomplete="none">
-            <input type="password" placeholder="Password" required>
+        <form action="/login" method="POST">
+            <input type="text" placeholder="Username" required autocomplete="none" id="username">
+            <input type="password" placeholder="Password" required id="password">
             <button type="submit">Login</button>
         </form>
         <a action="/SignUp" href="/signup.html" class="signup-link">Don't have an account? Sign up</a>

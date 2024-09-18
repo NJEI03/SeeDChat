@@ -1,0 +1,27 @@
+[
+  {
+    "username": "hello",
+    "password": "$2b$10$P62rlUjSyWI5uwlQ2ekxoerO4Ld3Lxi0YL1oWWik/SkuOxC1uw0Bm",
+    "profileImage": null
+  },
+  {
+    "username": "12345",
+    "password": "$2b$10$.agXrR5w0EWKP.Qk7kCekeZXKYiSUYnl0Kcz4zboDS3kK0uBEFU0C",
+    "profileImage": null
+  },
+  {
+    "username": "abdul",
+    "password": "$2b$10$2pFmFLGjDhVISNso53XQB..RA7GU62dtk8.XIYd9v1oBKRjVD.vBu",
+    "profileImage": null
+  },
+  {
+    "username": "fadiga",
+    "password": "$2b$10$WGRWDWxLrphRyC8Zj13Tte4ZIbRMKjA0R9A14ktmadvZBK29jeLzC",
+    "profileImage": null
+  },
+  {
+    "username": "boy",
+    "password": "$2b$10$SYfv0dh92X083FGY4Rd50ebzL1MPRMFlLIgUuhlo.apO6jrgmQAqO",
+    "profileImage": null
+  }
+]
