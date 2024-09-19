@@ -13,13 +13,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 // app.use(express.static('public'))
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.get('/', (req, res) => {
-  res.render("pages/login.html")
-})
-app.get('/signup', (req, res) => {
-  // res.render('./index.html')
-  res.sendFile(path.join(__dirname + '/public/signup.html'));
-});
+
 
 const users = {}
 

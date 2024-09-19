@@ -4,7 +4,7 @@
   "description": "My first socket.io app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon loginSingup.js"
+    "start": "nodemon Sever.js"
   },
   "type": "module",
   "author": "",

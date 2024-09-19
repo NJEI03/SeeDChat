@@ -59,7 +59,7 @@ app.use(express.static('public'));
 
 // Serve signup page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'signup.html'));
+  res.sendFile(path.join(__dirname, 'public/pages', 'signup.html'));
 });
 
 // Sign up route
@@ -98,16 +98,16 @@ app.post('/signup', upload.single('profileImage'), async (req, res) => {
 
 // Log in route
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, 'public/pages', 'login.html'));
 });
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   // Load users from db.json before login attempt
   loadUsers();
-
+  console.log(users);
   // Find user in database
-  const user = users.find(user => user.username === username);
+  const user = users.find(user => user.username.toLowerCase() === username);
 
   if (user) {
     // Compare passwords
@@ -117,37 +117,69 @@ app.post('/login', async (req, res) => {
       // Redirect to chat app
       res.redirect('/chat');
     } else {
-      res.status(401).send('Invalid password');
+      res.status(404).send('Invalid password');
     }
   } else {
     res.status(401).send('User not found');
   }
 });
 
+
 // Chat app route
 app.get('/chat', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+  res.sendFile(path.join(__dirname, 'public/pages', 'chat.html'));
 });
 
 // Socket.io setup for real-time messaging
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
+
+//   // Handle private messaging
+//   socket.on('privateMessage', ({ sender, receiver, message }) => {
+//     io.to(receiver).emit('privateMessage', { sender, message });
+//   });
+
+//   // Handle room creation
+//   socket.on('createRoom', (roomName) => {
+//     socket.join(roomName);
+//     io.to(roomName).emit('roomMessage', `User ${socket.id} joined the room`);
+//   });
+
+//   // Handle disconnection
+//   socket.on('disconnect', () => {
+//     console.log('A user disconnected');
+//   });
+// });
+
+const userr = {}
+
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  // console.log('a user connected');
+  socket.on('new-user', name => {
+    userr[socket.id] = name
+    socket.broadcast.emit('user-connected', name)
+    console.log('user-connected : ', name)
+  })
+  socket.on('chat message', (msg) => {
+    console.log("message :  " + msg)
+    io.emit('chat message', { msg: msg, name: userr[socket.id] });
+    //socket.broadcast.emit(msg)
+  })
 
-  // Handle private messaging
-  socket.on('privateMessage', ({ sender, receiver, message }) => {
-    io.to(receiver).emit('privateMessage', { sender, message });
-  });
+  //disconnect
 
-  // Handle room creation
-  socket.on('createRoom', (roomName) => {
-    socket.join(roomName);
-    io.to(roomName).emit('roomMessage', `User ${socket.id} joined the room`);
-  });
-
-  // Handle disconnection
   socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
+    socket.broadcast.emit('userDisconnected', userr[socket.id])
+    delete userr[socket.id]
+  })
+
+
+  //typing status
+  socket.on('typing', (isTyping) => {
+    io.emit('typing', { username: userr[socket.id], isTyping })
+  })
+
+
 });
 
 const PORT = process.env.PORT || 3000;

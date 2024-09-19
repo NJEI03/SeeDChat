@@ -13,11 +13,11 @@
         <h1>SeedChat</h1>
         <h2>Welcome back! Please login to continue.</h2>
         <form action="/login" method="POST">
-            <input type="text" placeholder="Username" required autocomplete="none" id="username">
-            <input type="password" placeholder="Password" required id="password">
+            <input type="text" name="username" required placeholder="Username" autocomplete="off">
+            <input type="password" name="password" required placeholder="Password">
             <button type="submit">Login</button>
         </form>
-        <a action="/SignUp" href="/signup.html" class="signup-link">Don't have an account? Sign up</a>
+        <a href="/" class="signup-link">Don't have an account? Sign up</a>
     </div>
 </body>
 
