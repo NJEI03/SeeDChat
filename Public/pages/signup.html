@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeedChat Signup</title>
+    <title>SeedChat</title>
     <link rel="stylesheet" href="../css/signup.css">
 </head>
 
@@ -22,8 +22,9 @@
         <h2>Get the best chat experience</h2>
         <form action="/signup" method="POST" enctype="multipart/form-data">
             <input type="text" name="username" required placeholder="Username" autocomplete="off">
+            <input type="email" name="email" required placeholder="Email...">
             <input type="password" name="password" required placeholder="Password">
-            <input type="file" name="profileImage">
+            <input type="file" name="profileImage" placeholder="upload Profile">
             <button type="submit">Sign Up</button>
         </form>
         <div class="social-signup">

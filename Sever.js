@@ -1,5 +1,5 @@
 import express from 'express';
-import http from 'http';
+import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 import path, { dirname } from 'path';
 import bodyParser from 'body-parser';
@@ -7,12 +7,13 @@ import multer from 'multer';
 import bcrypt from 'bcrypt';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { chatting } from './socket.js';
 
 // Set __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// User database (for demonstration purposes)
+// User database 
 let users = [];
 
 // Load users from db.json function
@@ -36,7 +37,7 @@ const loadUsers = () => {
 loadUsers();
 
 const app = express();
-const server = http.createServer(app);
+const server = createServer(app);
 const io = new Server(server);
 
 // Body parser middleware for parsing form data
@@ -56,18 +57,21 @@ const upload = multer({ storage: storage });
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
-
-// Serve signup page
+// Serve SeeDChat
 app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/pages', 'SeeDChat.html'))
+})
+// Serve signup page
+app.get('/signup', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'signup.html'));
 });
 
 // Sign up route
 app.post('/signup', upload.single('profileImage'), async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   // Check if username already exists
-  const existingUser = users.find(user => user.username === username);
+  const existingUser = users.find(user => user.email === email);
   if (existingUser) {
     return res.status(400).send('Username already exists');
   }
@@ -78,6 +82,7 @@ app.post('/signup', upload.single('profileImage'), async (req, res) => {
   // Save user to database
   const newUser = {
     username,
+    email,
     password: hashedPassword,
     profileImage: req.file ? req.file.filename : null
   };
@@ -101,13 +106,13 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'login.html'));
 });
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   // Load users from db.json before login attempt
   loadUsers();
-  console.log(users);
+
   // Find user in database
-  const user = users.find(user => user.username.toLowerCase() === username);
+  const user = users.find(user => user.email === email);
 
   if (user) {
     // Compare passwords
@@ -152,38 +157,38 @@ app.get('/chat', (req, res) => {
 // });
 
 const userr = {}
+chatting;
+// io.on('connection', (socket) => {
+//   // console.log('a user connected');
+//   socket.on('new-user', name => {
+//     userr[socket.id] = name
+//     socket.broadcast.emit('user-connected', name)
+//     console.log('user-connected : ', name)
+//   })
+//   socket.on('chat message', (msg) => {
+//     console.log("message :  " + msg)
+//     io.emit('chat message', { msg: msg, name: userr[socket.id] });
+//     //socket.broadcast.emit(msg)
+//   })
 
-io.on('connection', (socket) => {
-  // console.log('a user connected');
-  socket.on('new-user', name => {
-    userr[socket.id] = name
-    socket.broadcast.emit('user-connected', name)
-    console.log('user-connected : ', name)
-  })
-  socket.on('chat message', (msg) => {
-    console.log("message :  " + msg)
-    io.emit('chat message', { msg: msg, name: userr[socket.id] });
-    //socket.broadcast.emit(msg)
-  })
+//   //disconnect
 
-  //disconnect
-
-  socket.on('disconnect', () => {
-    socket.broadcast.emit('userDisconnected', userr[socket.id])
-    delete userr[socket.id]
-  })
-
-
-  //typing status
-  socket.on('typing', (isTyping) => {
-    io.emit('typing', { username: userr[socket.id], isTyping })
-  })
+//   socket.on('disconnect', () => {
+//     socket.broadcast.emit('userDisconnected', userr[socket.id])
+//     delete userr[socket.id]
+//   })
 
 
-});
+//   //typing status
+//   socket.on('typing', (isTyping) => {
+//     io.emit('typing', { username: userr[socket.id], isTyping })
+//   })
 
-const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// });
+
+
+
+server.listen(3000, () => {
+  console.log(`Server running on http://localhost:3000`);
 });

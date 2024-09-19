@@ -1,12 +1,14 @@
 [
   {
-    "username": "fadiga",
-    "password": "$2b$10$JNAb/qrmFP5eY82yC4xYouE7zhbeW1OouGLsRH6FEO8J3J/IqChJy",
+    "username": "abdul",
+    "email": "fadiga@gmail.com",
+    "password": "$2b$10$vVeA.VA4yniDcACwYjz3gO.62lFH3S/8QoYM7t37JSLnwe5HyuQeG",
     "profileImage": null
   },
   {
-    "username": "abdul",
-    "password": "$2b$10$iAQAe9.wFft9VdTFWhXQ4erLljb/PNbGkT95vEfWIMym3d0AmjUb.",
+    "username": "abdul Fadiga",
+    "email": "modestwilton@outlook.com",
+    "password": "$2b$10$i1LDQjfO6V51d9yGC5S/WeQBOtNdyzE2N12RjzFXEK3/FZ0azUT5e",
     "profileImage": null
   }
 ]

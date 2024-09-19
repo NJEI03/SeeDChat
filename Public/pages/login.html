@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeedChat Login</title>
+    <title>SeedChat</title>
     <link rel="stylesheet" href="../css/login.css">
 </head>
 
@@ -13,11 +13,12 @@
         <h1>SeedChat</h1>
         <h2>Welcome back! Please login to continue.</h2>
         <form action="/login" method="POST">
-            <input type="text" name="username" required placeholder="Username" autocomplete="off">
+            <!-- <input type="text" name="username" required placeholder="Username" autocomplete="off"> -->
+            <input type="email" name="email" required placeholder="Email...">
             <input type="password" name="password" required placeholder="Password">
             <button type="submit">Login</button>
         </form>
-        <a href="/" class="signup-link">Don't have an account? Sign up</a>
+        <a href="/signup" class="signup-link">Don't have an account? Sign up</a>
     </div>
 </body>
 

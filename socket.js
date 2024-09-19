@@ -1,23 +1,17 @@
 import express from 'express';
-import { createServer } from 'node:http';
-import { dirname, join } from 'node:path';
 import { Server } from 'socket.io';
+import { createServer } from 'node:http'
 
 
-import path from 'path'
-import { fileURLToPath } from 'node:url';
 const app = express();
 const server = createServer(app);
 const io = new Server(server, { connectionStateRecovery: {} });
-const __dirname = dirname(fileURLToPath(import.meta.url))
-// app.use(express.static('public'))
 
-app.use(express.static(path.join(__dirname, 'public')))
 
 
 const users = {}
 
-io.on('connection', (socket) => {
+const chatting = io.on('connection', (socket) => {
   // console.log('a user connected');
   socket.on('new-user', name => {
     users[socket.id] = name
@@ -47,7 +41,4 @@ io.on('connection', (socket) => {
 });
 
 
-
-server.listen(3000, () => {
-  console.log('server running at http://localhost:3000');
-});
+export { chatting }
