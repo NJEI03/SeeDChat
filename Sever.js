@@ -134,60 +134,8 @@ app.post('/login', async (req, res) => {
 app.get('/chat', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'chat.html'));
 });
-
-// Socket.io setup for real-time messaging
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
-
-//   // Handle private messaging
-//   socket.on('privateMessage', ({ sender, receiver, message }) => {
-//     io.to(receiver).emit('privateMessage', { sender, message });
-//   });
-
-//   // Handle room creation
-//   socket.on('createRoom', (roomName) => {
-//     socket.join(roomName);
-//     io.to(roomName).emit('roomMessage', `User ${socket.id} joined the room`);
-//   });
-
-//   // Handle disconnection
-//   socket.on('disconnect', () => {
-//     console.log('A user disconnected');
-//   });
-// });
-
 const userr = {}
 chatting;
-// io.on('connection', (socket) => {
-//   // console.log('a user connected');
-//   socket.on('new-user', name => {
-//     userr[socket.id] = name
-//     socket.broadcast.emit('user-connected', name)
-//     console.log('user-connected : ', name)
-//   })
-//   socket.on('chat message', (msg) => {
-//     console.log("message :  " + msg)
-//     io.emit('chat message', { msg: msg, name: userr[socket.id] });
-//     //socket.broadcast.emit(msg)
-//   })
-
-//   //disconnect
-
-//   socket.on('disconnect', () => {
-//     socket.broadcast.emit('userDisconnected', userr[socket.id])
-//     delete userr[socket.id]
-//   })
-
-
-//   //typing status
-//   socket.on('typing', (isTyping) => {
-//     io.emit('typing', { username: userr[socket.id], isTyping })
-//   })
-
-
-// });
-
-
 
 server.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`);
