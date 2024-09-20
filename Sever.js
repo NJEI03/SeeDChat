@@ -7,7 +7,7 @@ import multer from 'multer';
 import bcrypt from 'bcrypt';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import { chatting } from './socket.js';
+
 
 // Set __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -38,7 +38,8 @@ loadUsers();
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+// const io = new Server(server);
+const io = new Server(server, { connectionStateRecovery: {} });
 
 // Body parser middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -135,57 +136,37 @@ app.get('/chat', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'chat.html'));
 });
 
-// Socket.io setup for real-time messaging
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
+io.on('connection', (socket) => {
+  console.log('A user connected');
 
-//   // Handle private messaging
-//   socket.on('privateMessage', ({ sender, receiver, message }) => {
-//     io.to(receiver).emit('privateMessage', { sender, message });
-//   });
+  socket.on('new-user', (name) => {
+    console.log('New user connected:', name);
+    socket.broadcast.emit('user-connected', name);
+    socket.username = name;
+  });
 
-//   // Handle room creation
-//   socket.on('createRoom', (roomName) => {
-//     socket.join(roomName);
-//     io.to(roomName).emit('roomMessage', `User ${socket.id} joined the room`);
-//   });
+  socket.on('chat message', (msg) => {
+    console.log('chat message:', msg);
+    const messageData = {
+      name: socket.username,
+      msg: msg
+    };
+    io.emit('chat message', messageData);
+  });
 
-//   // Handle disconnection
-//   socket.on('disconnect', () => {
-//     console.log('A user disconnected');
-//   });
-// });
+  socket.on('typing', (isTyping) => {
+    const typingData = {
+      username: socket.username,
+      isTyping: isTyping
+    };
+    socket.broadcast.emit('typing', typingData);
+  });
 
-const userr = {}
-chatting;
-// io.on('connection', (socket) => {
-//   // console.log('a user connected');
-//   socket.on('new-user', name => {
-//     userr[socket.id] = name
-//     socket.broadcast.emit('user-connected', name)
-//     console.log('user-connected : ', name)
-//   })
-//   socket.on('chat message', (msg) => {
-//     console.log("message :  " + msg)
-//     io.emit('chat message', { msg: msg, name: userr[socket.id] });
-//     //socket.broadcast.emit(msg)
-//   })
-
-//   //disconnect
-
-//   socket.on('disconnect', () => {
-//     socket.broadcast.emit('userDisconnected', userr[socket.id])
-//     delete userr[socket.id]
-//   })
-
-
-//   //typing status
-//   socket.on('typing', (isTyping) => {
-//     io.emit('typing', { username: userr[socket.id], isTyping })
-//   })
-
-
-// });
+  socket.on('disconnect', () => {
+    console.log('User disconnected:', socket.username);
+    socket.broadcast.emit('userDisconnected', socket.username);
+  });
+});
 
 
 
