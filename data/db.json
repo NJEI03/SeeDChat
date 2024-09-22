@@ -1,0 +1,20 @@
+[
+  {
+    "username": "aa",
+    "email": "hello@gmail.com",
+    "password": "$2b$10$RIkBoYTJ.WcQo32zfj68b.aF2M./zdHAfBkTkGGf3qdqsxEDpRqN6",
+    "profileImage": null
+  },
+  {
+    "username": "abdul",
+    "email": "modestwilton@outlook.com",
+    "password": "$2b$10$WxffBsmEVHuJVFZ6YRMZvOixXtxCf7MBoU3v6OxLwVTHlwjpk.IOS",
+    "profileImage": null
+  },
+  {
+    "username": "tardzenyuy",
+    "email": "jeje@gnail.com",
+    "password": "$2b$10$OLTvFvKRpHUFBToGXWbexepaKTJVQYAo5HwtdcKCSC2YSZBhGcNB2",
+    "profileImage": null
+  }
+]

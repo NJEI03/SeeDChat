@@ -79,7 +79,8 @@ body {
 
 .signup-container input[type="text"],
 .signup-container input[type="password"],
-.signup-container input[type="email"] {
+.signup-container input[type="email"],
+.signup-container input[type="file"] {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
