@@ -7,7 +7,7 @@ import multer from 'multer';
 import bcrypt from 'bcrypt';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import { chatting } from './socket.js';
+
 
 // Set __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -38,7 +38,8 @@ loadUsers();
 
 const app = express();
 const server = createServer(app);
-const io = new Server(server);
+// const io = new Server(server);
+const io = new Server(server, { connectionStateRecovery: {} });
 
 // Body parser middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -134,8 +135,40 @@ app.post('/login', async (req, res) => {
 app.get('/chat', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'chat.html'));
 });
-const userr = {}
-chatting;
+
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  socket.on('new-user', (name) => {
+    console.log('New user connected:', name);
+    socket.broadcast.emit('user-connected', name);
+    socket.username = name;
+  });
+
+  socket.on('chat message', (msg) => {
+    console.log('chat message:', msg);
+    const messageData = {
+      name: socket.username,
+      msg: msg
+    };
+    io.emit('chat message', messageData);
+  });
+
+  socket.on('typing', (isTyping) => {
+    const typingData = {
+      username: socket.username,
+      isTyping: isTyping
+    };
+    socket.broadcast.emit('typing', typingData);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected:', socket.username);
+    socket.broadcast.emit('userDisconnected', socket.username);
+  });
+});
+
+
 
 server.listen(3000, () => {
   console.log(`Server running on http://localhost:3000`);
