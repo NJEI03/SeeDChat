@@ -9,16 +9,23 @@ const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', () => {
     const username = searchInput.value.trim();
-    fetch(`/search?name=${username}`)
-        .then(respons => respons.json())
+    fetch(`/search?username=${username}`)
+        .then(response => {
+            if (!response.ok) {
+                // User not found (404 status code)
+                searchInput.value = 'User not found'; // Set the input to the error message
+                return; // Stop further processing
+            }
+            return response.json();
+        })
         .then(data => {
             displayUsername(data.username);
         })
         .catch(error => {
-            console.error('Erro searching for user:', error)
-        })
-})
-
+            console.error('Error searching for user:', error);
+            searchInput.value = 'User not found'; // Set the input to the error message
+        });
+});
 function displayUsername(username) {
     const ChatMessages = document.getElementById('messages');
     const usernameMessage = document.createElement('div');
