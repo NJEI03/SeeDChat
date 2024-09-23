@@ -67,6 +67,59 @@ body{
 .login:hover{
     background-color:rgb(231, 159, 27);
 }
+.circle{
+    height: 50px;
+    width: 50px;
+    background-color: orange;
+    border-radius: 50%;
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: 2s;
+    animation-delay: 0.7s;
+    position: absolute;
+    left: 70%;
+    top:30%;
+    transition: all 0.3s ease;
+}
+.circle1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    background-color: rgb(36, 140, 36);
+    border-radius: 50%;
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: 2s;
+    animation-delay: 1s;
+    position: absolute;
+    left: 70%;
+    bottom:30%;
+}
+.circle2{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    top: ;
+    left:60%;
+    animation-name: pulse;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: 2s;
+    animation-delay: 1s;
+}
+@keyframes pulse {
+    from{
+        transform: scale(0.5);
+    }to{
+        transform: scale(1.2);
+    }
+    
+}
 
 /* * {
     margin: 0;
