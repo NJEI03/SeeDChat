@@ -10,5 +10,11 @@
     "email": "modestwilton@outlook.com",
     "password": "$2b$10$WxffBsmEVHuJVFZ6YRMZvOixXtxCf7MBoU3v6OxLwVTHlwjpk.IOS",
     "profileImage": null
+  },
+  {
+    "username": "hello",
+    "email": "sss@gmail.com",
+    "password": "$2b$10$0ywcwh7IQaZNA9aHbbmmweipRAyveeGYLIntJWOpHJHCVhN1ZUXv2",
+    "profileImage": "Icon.png"
   }
 ]

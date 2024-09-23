@@ -138,23 +138,18 @@ app.get('/chat', (req, res) => {
 
 // searching Route
 app.get('/search', (req, res) => {
-  const { username } = req.query;
-  // const user = users.find(user => user.username === name);
-  // if (user) {
-  //   res.json(user);
-  // } else {
-  //   res.status(404).json({ message: 'User not found' });
-  // }
+  const { username } = req.query; // Use 'username' in the route handler
+  console.log('received search:', username);
 
   fs.readFile('./data/db.json', 'utf8', (err, data) => {
     if (err) {
       console.error('Erro readinf Db.json: ', err);
       res.status(500).json({ message: 'Erro searching for user' });
     } else {
-      const UserData = JSON.parse(data);
-      const user = UserData.find(user => user.username === username);
+      const UsersData = JSON.parse(data);
+      const user = UsersData.find(user => user.username === username);
       if (user) {
-        res.json({ user });
+        res.json({ username: user.username }); // Send only the username
       } else {
         res.status(404).json({ message: 'User not found' });
       }
