@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon Sever.js"
   },
-  "type": "module",
+  "type":"module",
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -1,4 +1,74 @@
-* {
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height: 70%;
+    width: 60%;
+    background-color: rgb(198, 241, 198);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border-radius: 22px 36px;
+    flex-direction: column;
+}
+.content{
+    width: 80%;
+}
+.content h2{
+    color: orange;
+    font-size: 60px;
+}
+.content h2 span{
+    color: rgb(87, 249, 87);
+}
+.content p{
+    font-size: 20px;
+}
+.form{
+    width: 80%;
+    margin-top: 12px;
+    display: flex;
+    /* justify-content: center; */
+    gap: 8px;
+}
+.form .p{
+    height: 20px;
+    font-size: 16px;
+    border-radius: 16px;
+    padding: 12px;
+    width: 150px;
+    border: none;
+    text-align: center;
+    background-color: rgb(109, 230, 109);
+
+}
+.form .p a{
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+}
+.form .p:hover{
+    background-color: rgb(75, 214, 75);
+}
+.login{
+    background-color: orange;
+}
+.login:hover{
+    background-color:rgb(231, 159, 27);
+}
+
+/* * {
     margin: 0;
     padding: 0;
 }
@@ -15,6 +85,7 @@ html {
     margin: 0;
     overflow: hidden;
     gap: 5px;
+    text-decoration: none;
 }
 
 h1 {
@@ -39,12 +110,12 @@ p {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    margin: 10px 0;
+    margin: 20px 0;
 
 }
 
 .links .link>a {
-    color: #111;
+   
     text-decoration: none;
     height: 100px;
     width: 200px;
@@ -54,4 +125,4 @@ p {
 .link>a:hover {
     background-color: #e69500;
     border-bottom: 1px solid;
-}
+} */
