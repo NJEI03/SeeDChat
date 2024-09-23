@@ -92,7 +92,7 @@ app.post('/signup', upload.single('profileImage'), async (req, res) => {
   // Save users to db.json
   try {
     const dbFilePath = path.join(__dirname, 'data', 'db.json');
-    fs.writeFileSync(dbFilePath, JSON.stringify(users, null, 2)); // Update db.json
+    fs.writeFileSync(dbFilePath, JSON.stringify(users, null, 2));
     console.log('User saved to db.json');
   } catch (error) {
     console.error('Error saving to db.json: ', error);
@@ -134,6 +134,32 @@ app.post('/login', async (req, res) => {
 // Chat app route
 app.get('/chat', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/pages', 'chat.html'));
+});
+
+// searching Route
+app.get('/search', (req, res) => {
+  const { username } = req.query;
+  // const user = users.find(user => user.username === name);
+  // if (user) {
+  //   res.json(user);
+  // } else {
+  //   res.status(404).json({ message: 'User not found' });
+  // }
+
+  fs.readFile('./data/db.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Erro readinf Db.json: ', err);
+      res.status(500).json({ message: 'Erro searching for user' });
+    } else {
+      const UserData = JSON.parse(data);
+      const user = UserData.find(user => user.username === username);
+      if (user) {
+        res.json({ user });
+      } else {
+        res.status(404).json({ message: 'User not found' });
+      }
+    }
+  });
 });
 
 io.on('connection', (socket) => {
