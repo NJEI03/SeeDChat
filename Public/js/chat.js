@@ -1,10 +1,32 @@
 const socket = io();
 const form = document.getElementById('form');
 const input = document.getElementById('text');
-const message = document.getElementById('messages');
+// const message = document.getElementById('messages');
 const currentTime = new Date().toLocaleTimeString();
 const Friend = document.getElementById('messages1');
 
+const searchInput = document.getElementById('search');
+const searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', () => {
+    const username = searchInput.value.trim();
+    fetch(`/search?name=${username}`)
+        .then(respons => respons.json())
+        .then(data => {
+            displayUsername(data.username);
+        })
+        .catch(error => {
+            console.error('Erro searching for user:', error)
+        })
+})
+
+function displayUsername(username) {
+    const ChatMessages = document.getElementById('messages');
+    const usernameMessage = document.createElement('div');
+    usernameMessage.id = 'Newuser'
+    usernameMessage.textContent = `${username}`;
+
+    ChatMessages.appendChild(usernameMessage)
+}
 
 fetch('db.json')
     .then(response => response.json())
