@@ -34,14 +34,16 @@ body {
     display: flex;
     align-items: center;
 }
-#user-Info-Header .avatar{
+
+#user-Info-Header .avatar {
     border-radius: 50%;
 }
-.status-shape{
+
+.status-shape {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    border:2px dashed black;
+    border: 2px dashed black;
 }
 
 /* chats section that consist of the search box and users */
@@ -68,8 +70,8 @@ body {
 
 /* search icon */
 img {
-    width: 40px;
-    height: 40px;
+    width: 2rem;
+    height: 2rem;
     margin-top: -2px;
     border-radius: 20%;
 }
@@ -84,12 +86,35 @@ img {
     color: #9393C1;
 }
 
+#searchButton {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+}
+
 /* other users display */
 #messages {
     width: 336px;
     height: 550px;
+    max-height: 550px;
     border: 1px solid;
     color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 10px;
+    overflow-y: scroll;
+}
+
+#Newuser {
+    background-color: #70eccd;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
 }
 
 
