@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Multer setup for profile picture uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads');
+    cb(null, 'public/uploads');
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -71,6 +71,7 @@ app.get('/signup', (req, res) => {
 app.post('/signup', upload.single('profileImage'), async (req, res) => {
   const { username, email, password } = req.body;
 
+  const imagePath = `/uploads/${req.file.filename}`;
   // Check if username already exists
   const existingUser = users.find(user => user.email === email);
   if (existingUser) {

@@ -16,5 +16,17 @@
     "email": "checcho@gmail.com",
     "password": "$2b$10$3aarQ47S5JMTVclK0I3IzO5xmfFMBkUsqP23dNIPXRn2tMUOrA/1G",
     "profileImage": null
+  },
+  {
+    "username": "abdul",
+    "email": "sss@gmail.com",
+    "password": "$2b$10$kjhTUaFGqSYgEdvJewqTneLcp0lmVGhe4apPxJmtdVGl4q28wWvUi",
+    "profileImage": "Rectangle 38 (1).png"
+  },
+  {
+    "username": "fadiga",
+    "email": "tardzenyuyofficial@gmail.com",
+    "password": "$2b$10$gvU/gGtfJMpZSok3al2lw.s4gi39Y0HDDCqjDpMfleCK4gO7ByoFa",
+    "profileImage": "bg.png"
   }
 ]
