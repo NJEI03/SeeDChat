@@ -16,6 +16,7 @@ body{
  }
 .content{
     width: 50%;
+    height: 70vh;
     display: flex;
     gap: 12px;
     flex-direction: column;
@@ -64,7 +65,7 @@ body{
 
 /* Styling the hero image first to help further styling */
 .hero-pic{
-    width: 24vw;
+    width: 30vw;
     height: 70vh;
 }
 
