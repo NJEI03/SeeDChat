@@ -1,40 +1,45 @@
 const socket = io();
+// Getting the fields from the front end 
 const form = document.getElementById('form');
 const input = document.getElementById('text');
-// const message = document.getElementById('messages');
 const currentTime = new Date().toLocaleTimeString();
 const Friend = document.getElementById('messages1');
 
 const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('searchButton');
+const resultContainer = document.getElementById('messages')
+// Getting the user from the database and displaying in the front end.
+// 
 searchButton.addEventListener('click', () => {
     const username = searchInput.value.trim();
     fetch(`/search?username=${username}`)
         .then(response => {
             if (!response.ok) {
-                // User not found (404 status code)
-                searchInput.value = 'User not found'; // Set the input to the error message
-                return; // Stop further processing
+                searchInput.value = 'User not found';
+                return;
             }
             return response.json();
         })
         .then(data => {
-            displayUsername(data.username);
+            // displayUsername(data.username);
+            resultContainer.innerHTML = `<img src="${data.profileImage}" alt="${data.username}'s profile" width="100">
+            <h2>${data.username}</h2>`;
         })
         .catch(error => {
             console.error('Error searching for user:', error);
-            searchInput.value = 'User not found'; // Set the input to the error message
+            searchInput.value = 'User not found';
         });
 });
-function displayUsername(username) {
-    const ChatMessages = document.getElementById('messages');
-    const usernameMessage = document.createElement('div');
-    usernameMessage.id = 'Newuser'
-    usernameMessage.textContent = `${username}`;
+// function displayUsername(username) {
+//     const ChatMessages = document.getElementById('messages');
+//     const usernameMessage = document.createElement('div');
+//     usernameMessage.id = 'Newuser'
+//     usernameMessage.textContent = `${username}`;
 
-    ChatMessages.appendChild(usernameMessage)
-}
+//     ChatMessages.appendChild(usernameMessage)
+// }
 
+// Getting user name when you sign up or login from the database
 fetch('db.json')
     .then(response => response.json())
     .then(data => {

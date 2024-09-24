@@ -138,7 +138,7 @@ app.get('/chat', (req, res) => {
 
 // searching Route
 app.get('/search', (req, res) => {
-  const { username } = req.query; // Use 'username' in the route handler
+  const { username } = req.query;
   console.log('received search:', username);
 
   fs.readFile('./data/db.json', 'utf8', (err, data) => {
@@ -149,7 +149,7 @@ app.get('/search', (req, res) => {
       const UsersData = JSON.parse(data);
       const user = UsersData.find(user => user.username === username);
       if (user) {
-        res.json({ username: user.username }); // Send only the username
+        res.json({ username: user.username, profileImage: user.profileImage });
       } else {
         res.status(404).json({ message: 'User not found' });
       }
