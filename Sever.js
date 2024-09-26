@@ -47,7 +47,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Multer setup for profile picture uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads');
+    cb(null, 'public/uploads');
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -71,6 +71,7 @@ app.get('/signup', (req, res) => {
 app.post('/signup', upload.single('profileImage'), async (req, res) => {
   const { username, email, password } = req.body;
 
+  const imagePath = `/uploads/${req.file.filename}`;
   // Check if username already exists
   const existingUser = users.find(user => user.email === email);
   if (existingUser) {
@@ -138,7 +139,7 @@ app.get('/chat', (req, res) => {
 
 // searching Route
 app.get('/search', (req, res) => {
-  const { username } = req.query; // Use 'username' in the route handler
+  const { username } = req.query;
   console.log('received search:', username);
 
   fs.readFile('./data/db.json', 'utf8', (err, data) => {
@@ -149,7 +150,7 @@ app.get('/search', (req, res) => {
       const UsersData = JSON.parse(data);
       const user = UsersData.find(user => user.username === username);
       if (user) {
-        res.json({ username: user.username }); // Send only the username
+        res.json({ username: user.username, profileImage: user.profileImage });
       } else {
         res.status(404).json({ message: 'User not found' });
       }
