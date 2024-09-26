@@ -1,88 +1,81 @@
-body{
-    height:100vh ;
+body {
+    height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
 }
-.hero{
+
+.hero {
     height: 90%;
     width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
-    
- }
-.content{
+
+}
+
+.content {
     width: 50%;
     height: 70vh;
     display: flex;
     gap: 12px;
     flex-direction: column;
 }
-.content h1{
+
+.content h1 {
     font-size: 40px;
     margin-bottom: -12px;
 }
-.content h1 span{
+
+.content h1 span {
     color: orange;
 }
-.content p{
+
+.content p {
     font-size: 20;
 }
-.btn{
+
+.btn {
     border: none;
     font-size: 20px;
-    width:150px;
+    width: 150px;
     padding: 12px;
     border-radius: 8px;
 }
-.btn a{
-    text-decoration: none;
-    color: initial;
-}
-.btns .signup{
-    color: white;
-    background-color: orange;
-    margin-right: 4px;
- 
 
-}
-.btns .login{
+
+.btns .login {
     color: orange;
-    background-color:rgb(241, 228, 228);
+    background-color: rgb(241, 228, 228);
     margin-left: 4px;
 
 }
-.login:hover{
-    color:white;
-    background-color:orange;
+
+.login:hover {
+    color: white;
+    background-color: orange;
     transition: all 0.2s ease-in;
 }
 
-.image-cont{
+.image-cont {
     width: 50%;
     height: 100%;
 
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Styling the hero image first to help further styling */
-.hero-pic{
+.hero-pic {
     width: 30vw;
     height: 70vh;
-}
-.special{
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    background-color: orange;
-    position: absolute;
-    top: 20%;
-    right: 20%;
-    z-index: -1;
 
 }
+
 
 
 

@@ -107,6 +107,28 @@ img {
     overflow-y: scroll;
 }
 
+.profile-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 #Newuser {
     background-color: #70eccd;
     height: 50px;
@@ -115,6 +137,7 @@ img {
     align-items: center;
     justify-content: flex-start;
     border-radius: 10px;
+    padding: 0 10px;
 }
 
 

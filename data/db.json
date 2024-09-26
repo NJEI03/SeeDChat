@@ -1,20 +1,14 @@
 [
   {
-    "username": "aa",
-    "email": "hello@gmail.com",
-    "password": "$2b$10$RIkBoYTJ.WcQo32zfj68b.aF2M./zdHAfBkTkGGf3qdqsxEDpRqN6",
-    "profileImage": null
-  },
-  {
     "username": "abdul",
     "email": "modestwilton@outlook.com",
-    "password": "$2b$10$WxffBsmEVHuJVFZ6YRMZvOixXtxCf7MBoU3v6OxLwVTHlwjpk.IOS",
-    "profileImage": null
+    "password": "$2b$10$yQGqqLiAMPcq0YgY.5EOnecAN7bpWZlR04PcSAAbIULy/UBP3JKFC",
+    "profileImage": "Image.png"
   },
   {
-    "username": "hello",
-    "email": "sss@gmail.com",
-    "password": "$2b$10$0ywcwh7IQaZNA9aHbbmmweipRAyveeGYLIntJWOpHJHCVhN1ZUXv2",
-    "profileImage": "Icon.png"
+    "username": "boy",
+    "email": "tardzenyuyofficial@gmail.com",
+    "password": "$2b$10$H5prQkXxL4FC6S5TKT8nTOPKzBlqu4WtWw3AAdt70D9.NAitttgqC",
+    "profileImage": "bg.png"
   }
 ]

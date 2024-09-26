@@ -1,47 +1,63 @@
 const socket = io();
+// Getting the fields from the front end 
 const form = document.getElementById('form');
 const input = document.getElementById('text');
-// const message = document.getElementById('messages');
 const currentTime = new Date().toLocaleTimeString();
 const Friend = document.getElementById('messages1');
 
 const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('searchButton');
+const resultContainer = document.getElementById('messages'); // Element to display the result
+
 searchButton.addEventListener('click', () => {
     const username = searchInput.value.trim();
     fetch(`/search?username=${username}`)
         .then(response => {
             if (!response.ok) {
-                // User not found (404 status code)
-                searchInput.value = 'User not found'; // Set the input to the error message
-                return; // Stop further processing
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent = 'User not found';
+                resultContainer.appendChild(errorMessage);
+                return;
             }
             return response.json();
         })
         .then(data => {
-            displayUsername(data.username);
+            // User found, append username and profile image
+            const profileImagePath = data.profileImage;
+            const imageUrl = window.location.origin + '/uploads/' + profileImagePath;
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('profile-container');
+            profileContainer.innerHTML = `
+                <img src="${imageUrl}" alt="${username}'s profile" class="profile-image" onerror="this.onerror=null; this.src='placeholder.png';">
+                <p class="profile-name">${username}</p>
+            `;
+            resultContainer.appendChild(profileContainer);
         })
         .catch(error => {
             console.error('Error searching for user:', error);
-            searchInput.value = 'User not found'; // Set the input to the error message
+            const errorMessage = document.createElement('p');
+            errorMessage.textContent = 'Error searching for user';
+            resultContainer.appendChild(errorMessage);
         });
 });
-function displayUsername(username) {
-    const ChatMessages = document.getElementById('messages');
-    const usernameMessage = document.createElement('div');
-    usernameMessage.id = 'Newuser'
-    usernameMessage.textContent = `${username}`;
+// function displayUsername(username) {
+//     const ChatMessages = document.getElementById('messages');
+//     const usernameMessage = document.createElement('div');
+//     usernameMessage.id = 'Newuser'
+//     usernameMessage.textContent = `${ username } `;
 
-    ChatMessages.appendChild(usernameMessage)
-}
+//     ChatMessages.appendChild(usernameMessage)
+// }
 
+// Getting user name when you sign up or login from the database
 fetch('db.json')
     .then(response => response.json())
     .then(data => {
         const name = data.username;
 
-        document.getElementById('user-Info-Header').innerHTML += `<p class="connected">${name}</p>`;
-        document.getElementById("chats").innerHTML = `<p class="joined">You joined at ${currentTime}</p>`;
+        document.getElementById('user-Info-Header').innerHTML += `< p class="connected" > ${name}</ > `;
+        document.getElementById("chats").innerHTML = `< p class="joined" > You joined at ${currentTime}</ > `;
         socket.emit('new-user', name);
 
 
@@ -58,7 +74,7 @@ fetch('db.json')
         socket.on('chat message', (msg) => {
             console.log("msgs : ", msg)
             let user = msg.name == name ? "You" : msg.name
-            const item = (msg.name == name) ? `<p class="chat-message right">You : ${msg.msg} <span class="timeStamp">${currentTime}</span>` : `<p class="chat-message">${msg.name} : ${msg.msg} <span class="timeStamp">${currentTime}</span>`
+            const item = (msg.name == name) ? `< p class="chat-message right" > You : ${msg.msg} <span class="timeStamp">${currentTime}</span>` : ` < p class="chat-message" > ${msg.name} : ${msg.msg} <span class="timeStamp">${currentTime}</span>`
             document.getElementById("chats").innerHTML += item;
             console.log(item)
         });
@@ -78,13 +94,13 @@ fetch('db.json')
         // User connected
         socket.on('user-connected', name => {
             console.log("connected", name)
-            document.getElementById('messages').innerHTML += `<p class="user-connected">${name} connected</p>`;
+            document.getElementById('messages').innerHTML += `< p class="user-connected" > ${name} connected</ > `;
         });
 
         // User disconnected
         socket.on('userDisconnected', name => {
             console.log("disconnected ", name)
-            document.getElementById('messages').innerHTML += `<p class="user-connected">${name} disconnected</p>`;
+            document.getElementById('messages').innerHTML += `< p class="user-connected" > ${name} disconnected</ > `;
         });
 
         // Display typing
