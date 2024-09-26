@@ -45,13 +45,6 @@ body {
     border-radius: 8px;
 }
 
-.btns .signup {
-    color: white;
-    background-color: orange;
-    margin-right: 4px;
-
-
-}
 
 .btns .login {
     color: orange;
@@ -80,4 +73,10 @@ a {
 .hero-pic {
     width: 30vw;
     height: 70vh;
+
 }
+
+
+
+
+
