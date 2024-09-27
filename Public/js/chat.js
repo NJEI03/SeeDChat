@@ -25,6 +25,7 @@ searchButton.addEventListener('click', () => {
             // User found, append username and profile image
             const profileImagePath = data.profileImage;
             const imageUrl = window.location.origin + '/uploads/' + profileImagePath;
+            localStorage.setItem('UserData', JSON.stringify(data))
 
             const profileContainer = document.createElement('div');
             profileContainer.classList.add('profile-container');
@@ -40,17 +41,23 @@ searchButton.addEventListener('click', () => {
             errorMessage.textContent = 'Error searching for user';
             resultContainer.appendChild(errorMessage);
         });
+
 });
-// function displayUsername(username) {
-//     const ChatMessages = document.getElementById('messages');
-//     const usernameMessage = document.createElement('div');
-//     usernameMessage.id = 'Newuser'
-//     usernameMessage.textContent = `${ username } `;
 
-//     ChatMessages.appendChild(usernameMessage)
-// }
+document.addEventListener('DOMContentLoaded', () => {
+    const storedUserData = localStorage.getItem('userData');
+    if (storedUserData) {
+        const data = JSON.parse(storedUserData);
+        // 
+        const profileImagePath = data.profileImage;
+        const imageUrl = window.location.origin + '/uploads/' + profileImagePath;
 
-// Getting user name when you sign up or login from the database
+        resultContainer.innerHTML = `
+        <img src="${imageUrl}" alt="${username}'s profile" class="profile-image" onerror="this.onerror=null; this.src='placeholder.png';">
+        <p class="profile-name">${data.username}</p>
+    `;
+    }
+})
 fetch('db.json')
     .then(response => response.json())
     .then(data => {
