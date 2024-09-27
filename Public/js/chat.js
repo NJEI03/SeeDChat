@@ -25,6 +25,7 @@ searchButton.addEventListener('click', () => {
             // User found, append username and profile image
             const profileImagePath = data.profileImage;
             const imageUrl = window.location.origin + '/uploads/' + profileImagePath;
+            // local storage
             localStorage.setItem('UserData', JSON.stringify(data))
 
             const profileContainer = document.createElement('div');
@@ -43,7 +44,7 @@ searchButton.addEventListener('click', () => {
         });
 
 });
-
+// checking if the user is found in the local storage
 document.addEventListener('DOMContentLoaded', () => {
     const storedUserData = localStorage.getItem('userData');
     if (storedUserData) {
