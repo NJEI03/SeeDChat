@@ -43,6 +43,7 @@ body {
     width: 150px;
     padding: 12px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 
@@ -75,8 +76,3 @@ a {
     height: 70vh;
 
 }
-
-
-
-
-

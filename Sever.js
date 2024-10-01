@@ -71,7 +71,7 @@ app.get('/signup', (req, res) => {
 app.post('/signup', upload.single('profileImage'), async (req, res) => {
   const { username, email, password } = req.body;
 
-  const imagePath = `/uploads/${req.file.filename}`;
+  // const imagePath = `/uploads/${req.file.filename}`;
   // Check if username already exists
   const existingUser = users.find(user => user.email === email);
   if (existingUser) {
