@@ -29,13 +29,11 @@ body {
 /* user information */
 #user-Info-Header {
     width: 300px;
-    /* height: 50px; */
-    /* border: 1px solid #000; */
     display: flex;
     align-items: center;
 }
 
-#user-Info-Header .avatar {
+#user-Info-Header .profile {
     border-radius: 50%;
 }
 
@@ -162,11 +160,12 @@ img {
 .Contact-info {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 20px;
     width: 200px;
 }
 
-.Contact-info .profile-name {
+.Contact-info .profile-Name {
     margin-bottom: -8px;
 }
 
@@ -190,6 +189,8 @@ img {
 
 .avatar {
     margin-left: 10px;
+    height: 70px;
+    width: 70px;
 }
 
 /* Icons section */

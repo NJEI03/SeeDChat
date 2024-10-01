@@ -14,7 +14,6 @@ const displayErrorMessage = (message) => {
     resultContainer.appendChild(errorMessage);
 };
 
-// Function to display user profile
 const displayUserProfile = (data) => {
     const profileImagePath = data.profileImage;
     const imageUrl = window.location.origin + '/uploads/' + profileImagePath;
@@ -26,8 +25,18 @@ const displayUserProfile = (data) => {
         <p class="profile-name">${data.username}</p>
     `;
     resultContainer.appendChild(profileContainer);
-};
 
+    // Event listener for clicking on the profile container
+    profileContainer.addEventListener('click', () => {
+        localStorage.setItem('UserData', JSON.stringify(data)); // Store user data in local storage
+
+        const avatar = document.querySelector('.avatar');
+        avatar.src = imageUrl; // Update user profile image in header when profile container is clicked
+
+        // Directly update the profile name text content
+        document.querySelector('.profile-Name').textContent = data.username;
+    });
+};
 // Event listener for search button click
 searchButton.addEventListener('click', () => {
     const username = searchInput.value.trim();
