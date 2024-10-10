@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "username": "Junior",
+    "email": "pierrick@gmail.com",
+    "password": "$2b$10$/9xY/2fzuRXYXexGTkL4TuHZ2Yqmu3OksMaoFXr7gi0NSNqkl.AJe",
+    "profileImage": "bg.jpg"
+  }
+]
